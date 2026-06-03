@@ -43,3 +43,27 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Environment / secrets
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+*.iml
+.idea/
+
+# OS
+Thumbs.db
+
+# Flutter generated
+/ios/Flutter/Generated.xcconfig
+/ios/Runner/GeneratedPluginRegistrant.*
+/linux/flutter/ephemeral/
+/windows/flutter/ephemeral/
+
+# Keystore & signing
+*.jks
+*.keystore
+key.properties
