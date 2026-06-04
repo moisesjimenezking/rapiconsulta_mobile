@@ -1,16 +1,63 @@
-# rapiconsulta
+# RapiConsulta Mobile
 
-A new Flutter project.
+Aplicacion Flutter para consultar cedulas y RIF venezolanos usando la API de RapiConsulta.
 
-## Getting Started
+## Requisitos
 
-This project is a starting point for a Flutter application.
+- Flutter 3.x
+- Dart 3.x
+- Android SDK (para compilar APK)
 
-A few resources to get you started if this is your first Flutter project:
+## Instalacion
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```bash
+cd mobile
+flutter pub get
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Ejecutar en modo desarrollo
+
+```bash
+flutter run
+```
+
+## Compilar
+
+### Debug APK
+
+```bash
+flutter build apk --debug
+```
+
+El APK queda en `build/app/outputs/flutter-apk/app-debug.apk`.
+
+### Release APK
+
+```bash
+flutter build apk --release
+```
+
+### Release con firma (produccion)
+
+Configura tu archivo `android/key.properties`:
+
+```properties
+storePassword=tu_password
+keyPassword=tu_password
+keyAlias=upload
+storeFile=/ruta/a/tu/keystore.jks
+```
+
+Luego compila:
+
+```bash
+flutter build apk --release
+```
+
+o genera un bundle para subirla a Play Store:
+
+```bash
+flutter build appbundle --release
+```
+
+La API endpoint se configura en `lib/services/api_service.dart`.

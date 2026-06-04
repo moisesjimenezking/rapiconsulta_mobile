@@ -4,15 +4,15 @@ import '../theme/app_colors.dart';
 
 class ResultBottomSheet {
   static void showCedula(BuildContext context, Map<String, dynamic> data) {
-    final firstName = data['first_name'] ?? '';
-    final middleName = data['middle_name'] ?? '';
-    final lastName = data['last_name'] ?? '';
-    final secondLastName = data['second_last_name'] ?? '';
+    final firstName = data['first_name']?.toString() ?? '';
+    final middleName = data['middle_name']?.toString() ?? '';
+    final lastName = data['last_name']?.toString() ?? '';
+    final secondLastName = data['second_last_name']?.toString() ?? '';
     final fullName = [firstName, middleName, lastName, secondLastName]
-        .where((e) => e.toString().isNotEmpty)
+        .where((e) => e.isNotEmpty)
         .join(' ');
-    final dniCode = data['dni_code'] ?? '';
-    final dniNumber = data['dni_number'] ?? '';
+    final dniCode = data['dni_code']?.toString() ?? '';
+    final dniNumber = data['dni_number']?.toString() ?? '';
     final cedulaDisplay =
         dniCode.isNotEmpty && dniNumber.isNotEmpty ? '$dniCode$dniNumber' : '';
     final birthdate = data['birthdate'];
@@ -80,9 +80,9 @@ class ResultBottomSheet {
   }
 
   static void showRif(BuildContext context, Map<String, dynamic> data) {
-    final nombre = data['name'] ?? 'No disponible';
-    final actividad = data['activity'] ?? 'No disponible';
-    final rif = data['rif'] ?? '';
+    final nombre = data['name']?.toString() ?? 'No disponible';
+    final actividad = data['activity']?.toString() ?? 'No disponible';
+    final rif = data['rif']?.toString() ?? '';
 
     showModalBottomSheet(
       context: context,
